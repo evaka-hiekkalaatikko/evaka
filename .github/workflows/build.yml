@@ -64,7 +64,7 @@ jobs:
       - name: Setup Docker building
         if: vars.AWS == 'true'
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -76,7 +76,7 @@ jobs:
       - name: Build keycloak image
         if: vars.AWS == 'true'
         id: build
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         with:
           registry: ${{ steps.setup.outputs.ecr_registry }}
           name: evaka/keycloak
@@ -89,7 +89,7 @@ jobs:
 
       - name: Docker cleanup
         if: always()
-        uses: espoon-voltti/voltti-actions/docker-cleanup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-cleanup@master
 
     outputs:
       image: ${{ steps.build.outputs.image }}
@@ -104,7 +104,7 @@ jobs:
       - name: Setup Docker building
         if: vars.AWS == 'true'
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -114,7 +114,7 @@ jobs:
 
       - name: Build frontend image
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: build
         with:
           registry: ghcr.io/${{ github.repository_owner }}
@@ -132,7 +132,7 @@ jobs:
 
       - name: Build frontend image builder
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: builder
         with:
           registry: ghcr.io/${{ github.repository_owner }}
@@ -152,7 +152,7 @@ jobs:
 
       - name: Docker cleanup
         if: always()
-        uses: espoon-voltti/voltti-actions/docker-cleanup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-cleanup@master
 
     outputs:
       image: ${{ steps.build.outputs.image }}
@@ -193,7 +193,7 @@ jobs:
       - name: Setup Docker building
         if: vars.AWS == 'true'
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -204,7 +204,7 @@ jobs:
 
       - name: Build frontend image
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: build
         with:
           registry: ${{ steps.setup.outputs.ecr_registry }}
@@ -223,7 +223,7 @@ jobs:
 
       - name: Docker cleanup
         if: always()
-        uses: espoon-voltti/voltti-actions/docker-cleanup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-cleanup@master
 
     outputs:
       image: ${{ steps.build.outputs.image }}
@@ -266,7 +266,7 @@ jobs:
 
       - name: Docker cleanup
         if: always()
-        uses: espoon-voltti/voltti-actions/docker-cleanup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-cleanup@master
 
   api-gateway:
     runs-on: ubuntu-latest
@@ -278,7 +278,7 @@ jobs:
       - name: Setup Docker building
         if: vars.AWS == 'true'
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -289,7 +289,7 @@ jobs:
 
       - name: Build and run API-gateway tests
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: test
         with:
           registry: ${{ steps.setup.outputs.ecr_registry }}
@@ -305,7 +305,7 @@ jobs:
 
       - name: Build API-gateway image
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: build
         with:
           registry: ${{ steps.setup.outputs.ecr_registry }}
@@ -337,7 +337,7 @@ jobs:
       - name: Setup Docker building
         if: vars.AWS == 'true'
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -348,7 +348,7 @@ jobs:
 
       - name: Build Evaka Service image
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: build
         with:
           registry: ${{ steps.setup.outputs.ecr_registry }}
@@ -363,7 +363,7 @@ jobs:
 
       - name: Build Evaka Service builder image
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: builder
         with:
           registry: ${{ steps.setup.outputs.ecr_registry }}
@@ -380,7 +380,7 @@ jobs:
 
       - name: Docker cleanup
         if: always()
-        uses: espoon-voltti/voltti-actions/docker-cleanup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-cleanup@master
 
     outputs:
       image: ${{ steps.build.outputs.image }}
@@ -399,7 +399,7 @@ jobs:
       - name: Setup Docker building
         if: vars.AWS == 'true'
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -410,7 +410,7 @@ jobs:
 
       - name: Build and run Evaka Service tests
         if: vars.AWS == 'true'
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         id: build
         with:
           registry: ${{ steps.setup.outputs.ecr_registry }}
@@ -434,7 +434,7 @@ jobs:
 
       - name: Docker cleanup
         if: always()
-        uses: espoon-voltti/voltti-actions/docker-cleanup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-cleanup@master
 
   owasp:
     needs:
@@ -737,7 +737,7 @@ jobs:
       - deploy
     steps:
       - name: Report failure
-        uses: espoon-voltti/voltti-actions/notify@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/notify@master
         with:
           webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           channel: "#evaka-alerts"

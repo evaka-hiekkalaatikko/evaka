@@ -35,7 +35,7 @@ jobs:
 
       - name: Setup Docker building
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -45,7 +45,7 @@ jobs:
 
       - name: Build playwright image
         id: build
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         with:
           public_registry_prefix: ""
           registry: ghcr.io/${{ github.repository_owner }}
@@ -63,7 +63,7 @@ jobs:
 
       - name: Setup Docker building
         id: setup
-        uses: espoon-voltti/voltti-actions/docker-setup@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-setup@master
         with:
           DOCKERHUB: ${{ vars.DOCKERHUB || 'true' }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -73,7 +73,7 @@ jobs:
 
       - name: Build db image
         id: build
-        uses: espoon-voltti/voltti-actions/docker-build-registry@feat/allow-disabling-features
+        uses: espoon-voltti/voltti-actions/docker-build-registry@master
         with:
           public_registry_prefix: ""
           registry: ghcr.io/${{ github.repository_owner }}

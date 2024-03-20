@@ -8,18 +8,20 @@ set -euo pipefail
 
 cd "$( dirname "${BASH_SOURCE[0]}")"
 
+EVAKA_CUSTOMIZATIONS="${2:-espoo}"
+
 if [ "${1:-}" = "test" ] || [ "${1:-}" = "builder" ]; then
     docker build -t evaka/frontend-builder \
         --target=builder \
         --build-arg build=0 \
         --build-arg commit="$(git rev-parse HEAD)" \
-        --build-context customizations=src/lib-customizations/espoo \
+        --build-context "customizations=src/lib-customizations/${EVAKA_CUSTOMIZATIONS}" \
         -f Dockerfile .
 else
     docker build -t evaka/frontend \
         --build-arg build=0 \
         --build-arg commit="$(git rev-parse HEAD)" \
-        --build-context customizations=src/lib-customizations/espoo \
+        --build-context "customizations=src/lib-customizations/${EVAKA_CUSTOMIZATIONS}" \
         -f Dockerfile .
 fi
 

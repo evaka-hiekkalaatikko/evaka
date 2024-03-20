@@ -95,16 +95,17 @@ By default the workflow does not use cache or construct any artifacts.
 
 To enable features add variables and secrets from Github Project -> Settings -> Secrets and variables -> Actions
 
-| Variable             | Value         | Required secrets                        |                                        |
-|----------------------|---------------|-----------------------------------------|----------------------------------------|
-| `AWS`                | `true`        | `AWS_ROLE`, `AWS_REGION`                | Where `AWS_ROLE` is AWS OIDC ARN.      |
-| `S3`                 | `true`        |                                         |                                        |
-| `DOCKERHUB`          | `true`        | `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN` | Only read access needed                |
-| `DEPLOY`             | `true`        | `EVAKA_PAT`                             | Requires `evaka-deploy` repository     |
-| `SLACK`              | `true`        | `SLACK_WEBHOOK_URL`                     |                                        |
-| `OWASP`              | `true`        |                                         |                                        |
-| `FONTAWESOME`        | `true`        | `FONTAWESOME_TOKEN`                     |                                        |
-| *enabled by secret*  |               | `SENTRY_AUTH_TOKEN`                     |                                        |
+| Variable               | Value         | Required secrets                        | Notes                                  |
+|------------------------|---------------|-----------------------------------------|----------------------------------------|
+| `EVAKA_CUSTOMIZATIONS` | path name     |                                         | Evaka customizations path name         |
+| `AWS`                  | `true`        | `AWS_ROLE`, `AWS_REGION`                | Where `AWS_ROLE` is AWS OIDC ARN.      |
+| `S3`                   | `true`        |                                         |                                        |
+| `DOCKERHUB`            | `true`        | `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN` | Only read access needed                |
+| `DEPLOY`               | `true`        | `EVAKA_PAT`                             | Requires `evaka-deploy` repository     |
+| `SLACK`                | `true`        | `SLACK_WEBHOOK_URL`                     |                                        |
+| `OWASP`                | `true`        |                                         |                                        |
+| `FONTAWESOME`          | `true`        | `FONTAWESOME_TOKEN`                     |                                        |
+| *enabled by secret*    |               | `SENTRY_AUTH_TOKEN`                     |                                        |
 
 Most of the features need `AWS` feature to function.
 

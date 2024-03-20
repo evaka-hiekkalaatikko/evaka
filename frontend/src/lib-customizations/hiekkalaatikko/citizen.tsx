@@ -8,6 +8,8 @@ import styled from 'styled-components'
 import { FixedSpaceColumn } from 'lib-components/layout/flex-helpers'
 import type { CitizenCustomizations } from 'lib-customizations/types'
 
+import colors from 'lib-customizations/common'
+
 import { citizenConfig } from './appConfigs'
 import CommonLogo from './assets/CommonLogoPrimary.svg'
 import featureFlags from './featureFlags'
@@ -24,6 +26,28 @@ const customizations: CitizenCustomizations = {
   langs: ['fi', 'sv', 'en'],
   translations: {
     fi: {
+      footer: {
+        cityLabel: 'Evaka',
+        privacyPolicyLink: (
+          <a
+            href="https://www.example.org/"
+            data-qa="footer-policy-link"
+            style={{ color: colors.main.m2 }}
+          >
+            Tietosuojaselosteet
+          </a>
+        ),
+        accessibilityStatement: 'Saavutettavuusseloste',
+        sendFeedbackLink: (
+          <a
+            href="https://www.example.org/"
+            data-qa="footer-feedback-link"
+            style={{ color: colors.main.m2 }}
+          >
+            Lähetä palautetta
+          </a>
+        )
+      },
       applications: {
         editor: {
           serviceNeed: {
@@ -65,6 +89,28 @@ const customizations: CitizenCustomizations = {
       }
     },
     sv: {
+      footer: {
+        cityLabel: 'Evaka',
+        privacyPolicyLink: (
+          <a
+            href="https://www.example.org/"
+            data-qa="footer-policy-link"
+            style={{ color: colors.main.m2 }}
+          >
+            Dataskyddsbeskrivningar
+          </a>
+        ),
+        accessibilityStatement: 'Tillgänglighetsutlåtande',
+        sendFeedbackLink: (
+          <a
+            href="https://www.example.org"
+            data-qa="footer-feedback-link"
+            style={{ color: colors.main.m2 }}
+          >
+            Skicka feedback
+          </a>
+        )
+      },
       applications: {
         editor: {
           serviceNeed: {
@@ -108,6 +154,28 @@ const customizations: CitizenCustomizations = {
       }
     },
     en: {
+      footer: {
+        cityLabel: 'Evaka',
+        privacyPolicyLink: (
+          <a
+            href="https://www.example.org/"
+            data-qa="footer-policy-link"
+            style={{ color: colors.main.m2 }}
+          >
+            Privacy Notices
+          </a>
+        ),
+        accessibilityStatement: 'Accessibility statement',
+        sendFeedbackLink: (
+          <a
+            href="https://www.example.org/"
+            data-qa="footer-feedback-link"
+            style={{ color: colors.main.m2 }}
+          >
+            Give feedback
+          </a>
+        )
+      },
       applications: {
         editor: {
           serviceNeed: {

@@ -6,9 +6,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { FixedSpaceColumn } from 'lib-components/layout/flex-helpers'
-import type { CitizenCustomizations } from 'lib-customizations/types'
-
+import { P } from 'lib-components/typography'
 import colors from 'lib-customizations/common'
+import type { CitizenCustomizations } from 'lib-customizations/types'
 
 import { citizenConfig } from './appConfigs'
 import CommonLogo from './assets/CommonLogoPrimary.svg'
@@ -26,6 +26,26 @@ const customizations: CitizenCustomizations = {
   langs: ['fi', 'sv', 'en'],
   translations: {
     fi: {
+      loginPage: {
+        title: 'Varhaiskasvatus',
+        login: {
+          infoBoxText: (
+            <>
+              <P>
+                Mikäli kirjautuminen tästä ei onnistu, katso ohjeet{' '}
+                <a
+                  href="https://www.example.org"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  eVaka | Espoon kaupunki
+                </a>
+                . Voit kirjautua myös käyttämällä vahvaa tunnistautumista.
+              </P>
+            </>
+          )
+        }
+      },
       footer: {
         cityLabel: 'Evaka',
         privacyPolicyLink: (
@@ -89,6 +109,26 @@ const customizations: CitizenCustomizations = {
       }
     },
     sv: {
+      loginPage: {
+        title: 'Småbarnspedagogik',
+        login: {
+          infoBoxText: (
+            <>
+              <P>
+                Om du inte kan logga in här, se instruktionerna för{' '}
+                <a
+                  href="https://www.example.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  eVaka | Esbo stad
+                </a>
+                . Du kan också logga in med stark autentisering.
+              </P>
+            </>
+          )
+        }
+      },
       footer: {
         cityLabel: 'Evaka',
         privacyPolicyLink: (
@@ -154,6 +194,26 @@ const customizations: CitizenCustomizations = {
       }
     },
     en: {
+      loginPage: {
+        title: 'Early childhood education',
+        login: {
+          infoBoxText: (
+            <>
+              <P>
+                If you are not able to log in here, see the instructions{' '}
+                <a
+                  href="https://www.example.org"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  eVaka | Espoon kaupunki
+                </a>
+                . You can also log in with strong authentication.
+              </P>
+            </>
+          )
+        }
+      },
       footer: {
         cityLabel: 'Evaka',
         privacyPolicyLink: (
